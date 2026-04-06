@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+
+export default function App() {
+
+  // state stores the counter value
+  const [count, setCount] = useState(0);
+
+  // function to increase counter
+  function increment() {
+    setCount(count + 1);
+  }
+
+  // function to decrease counter
+  function decrement() {
+    setCount(count - 1);
+  }
+
+  // function to reset counter
+  function reset() {
+    setCount(0);
+  }
+
+  return (
+    <View style={styles.container}>
+
+      <Text style={styles.title}>
+        Simple Counter App
+      </Text>
+
+      {/* displays the counter value */}
+      <Text style={styles.counter}>
+        {count}
+      </Text>
+
+      <View style={styles.buttonContainer}>
+
+        <Button
+          title="Increase"
+          onPress={increment}
+        />
+
+        <Button
+          title="Decrease"
+          onPress={decrement}
+        />
+
+        <Button
+          title="Reset"
+          onPress={reset}
+        />
+
+      </View>
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+
+  counter: {
+    fontSize: 40,
+    marginBottom: 30,
+  },
+
+  buttonContainer: {
+    height: 150,
+    justifyContent: "space-between",
+  },
+
+});
